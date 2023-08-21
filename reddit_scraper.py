@@ -30,11 +30,11 @@ for link in links:
     extracted_records.append(records)
     
 
-data = pd.DataFrame(extracted_records)
-print(data)
-#with open('data.json', 'w') as outfile:
-  #  json.dump(extracted_records, outfile)
+print(extracted_records)
 
-#with open('data.json', 'r') as infile: # load the data into a Python dictionary
-  #  data = json.load(infile) # print the data print(data)
+with open('data.json', 'w') as outfile:
+    json.dump(extracted_records, outfile)
+
+with open('data.json', 'r') as infile: # load the data into a Python dictionary
+   data = json.load(infile) # print the data print(data)
     
