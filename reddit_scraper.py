@@ -1,3 +1,4 @@
+#Import libraries
 import urllib.request
 from bs4 import BeautifulSoup
 import json
@@ -6,9 +7,11 @@ import pandas as pd
 
 url = "https://old.reddit.com/top/"
 
+#get the HTML content
 request = urllib.request.Request(url)
 html = urllib.request.urlopen(request).read()
 
+#Parse the content using beautifulsoup
 soup = BeautifulSoup(html, 'html.parser')
 
 main_table = soup.find("div", attrs={"id" : "siteTable"})
@@ -32,9 +35,11 @@ for link in links:
 
 print(extracted_records)
 
+#Store the content as a json
 with open('data.json', 'w') as outfile:
     json.dump(extracted_records, outfile)
 
+#open the json file
 with open('data.json', 'r') as infile: # load the data into a Python dictionary
    data = json.load(infile) # print the data print(data)
     
